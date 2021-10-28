@@ -1,0 +1,138 @@
+
+body {
+    font-size: 16pt; /* test for this! Make all sizes em or rem */
+    font-family: 'Alegreya Sans SC', serif;
+    background-image: url(../images/concrete_seamless.png);
+    background-color: #f1f1f1; 
+}
+
+header { 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+}
+
+.nav_links { 
+    display: flex;
+    flex-direction: column; 
+}
+
+a:visited {
+    color: blue; /* Not sure about this!!! */
+}
+
+.pricing { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; 
+}
+
+.gallery { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; 
+}
+
+.card {
+    display: flex;
+    flex-basis: 450px; /* Not sure about this!!! */
+    flex-direction: column;
+}
+
+.card > header { /* Not sure about this!!! */
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0;
+    border-radius: 7px 7px 0 0;
+}
+
+
+#image1, #image2, #image3, #image4, #image5 {
+    border: 10px solid;
+    color: #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+#logo {
+    animation-name: logo;
+    animation-duration: 5s;
+    animation-iteration-count: 1; /* Not sure about this!!! */
+}
+
+@keyframes logo {
+    from{
+        width: 50px;
+        opacity: 0;
+    }
+    to{
+        width: 425px;
+        opacity: 1;
+    }
+}
+
+@media screen and (min-width: 850px){
+    header {
+        position: sticky; /* Not working!!! */
+        flex-direction: row; 
+        justify-content: space-between;
+        /* overflow/visibility: visible */
+    }
+
+    .card header {
+        position: initial;
+    }
+
+    .nav_links { 
+        justify-content: flex-end;
+        flex-direction: row; 
+    }
+
+    .card{
+        flex-basis: 250px;
+    }
+  }
+
+@media (prefers-reduced-motion){
+    #logo {
+        animation-name: none;
+    }
+}
+
+@media print {
+    body {
+        background-image: none;
+    }
+
+    .nav_links { 
+        justify-content: space-between; /* Not sure about this!!! */
+        align-items: flex-end;
+        flex-direction: row;
+    }
+
+    .pricing { 
+        align-items: flex-end;
+    }
+
+    .card {
+        border: 2px solid #45ADDD;
+        flex-basis: 250px;
+    }
+
+    #gallery, .gallery {
+        display: none;
+    }
+
+    .card li:nth-child(odd):before{
+        content: '\1F44D';
+        /* Actually use list-style-image??? */
+    }
+
+    .card li:nth-child(even)::after{
+        content: '\1F44D';
+        /* Actually use list-style-image??? */
+    }
+}
